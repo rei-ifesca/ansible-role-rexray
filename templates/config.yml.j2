@@ -1,6 +1,6 @@
 # {{ ansible_managed }}
 rexray:
-{% if docker is defined %}
+{% if rexray_docker is defined %}
   modules:
     default-docker:
       host: tcp://:7981
