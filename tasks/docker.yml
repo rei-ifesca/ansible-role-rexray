@@ -27,23 +27,6 @@
       DOBS_STATUSMAXATTEMPTS: "{{ rexray_dobs_max_attempts }}"
       DOBS_STATUSTIMEOUT: "{{ rexray_dobs_status_timeout }}"
       REXRAY_PREEMPT: "{{ rexray_volume_preempt }}"
-      HTTP_PROXY: "{{ rexray_dobs_http_proxy }}"
-  when:
-      - rexray_dobs_token is defined
-      - dobs_installed.rc == 1
-  notify:
-      - restart docker
-
-- name: Install docker digital ocean driver
-  shell: echo y | docker plugin install rexray/dobs
-  environment:
-      DOBS_REGION: "{{ rexray_dobs_region }}"
-      DOBS_TOKEN: "{{ rexray_dobs_token }}"
-      DOBS_CONVERTUNDERSCORES: "{{ rexray_dobs_convert_underscores }}"
-      DOBS_STATUSINITIALDELAY: "{{ rexray_dobs_status_initial_delay  }}"
-      DOBS_STATUSMAXATTEMPTS: "{{ rexray_dobs_max_attempts }}"
-      DOBS_STATUSTIMEOUT: "{{ rexray_dobs_status_timeout }}"
-      REXRAY_PREEMPT: "{{ rexray_volume_preempt }}"
       REXRAY_DOCKER_LEGACY: "{{ rexray_docker_legacy }}"
       HTTP_PROXY: "{{ rexray_dobs_http_proxy }}"
   when:
