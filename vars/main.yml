@@ -74,7 +74,7 @@ rexray_vbox_controller_name: SATA
 rexray_dobs_region: 'ams3'
 rexray_dobs_convert_underscores: false
 rexray_dobs_status_initial_delay: 100ms
-rexray_dobs_status_max_attempts: 10
+rexray_dobs_max_attempts: 10
 rexray_dobs_status_timeout: 2m
 rexray_dobs_http_proxy: ''
 
