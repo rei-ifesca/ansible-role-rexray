@@ -26,6 +26,8 @@
       DOBS_STATUSINITIALDELAY: "{{ rexray_dobs_status_initial_delay  }}"
       DOBS_STATUSMAXATTEMPTS: "{{ rexray_dobs_max_attempts }}"
       DOBS_STATUSTIMEOUT: "{{ rexray_dobs_status_timeout }}"
+      REXRAY_PREEMPT: "{{ rexray_volume_preempt }}"
+      REXRAY_DOCKER_LEGACY: "{{ rexray_docker_legacy }}"
       HTTP_PROXY: "{{ rexray_dobs_http_proxy }}"
   when:
       - rexray_dobs_token is defined
