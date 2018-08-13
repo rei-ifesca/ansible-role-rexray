@@ -42,7 +42,7 @@
       - { name: "DOBS_STATUSMAXATTEMPTS", value: "{{ rexray_dobs_status_max_attempts }}" }
       - { name: "DOBS_STATUSTIMEOUT", value: "{{ rexray_dobs_status_timeout }}" }
       - { name: "REXRAY_PREEMPT", value: "{{ rexray_volume_preempt }}" }
-      - { name: "REXRAY_DOCKER_LEGACY", value: "{{ rexray_docker_legacy }}" }
+      - { name: "DOCKER_LEGACY", value: "{{ rexray_docker_legacy }}" }
       - { name: "HTTP_PROXY", value: "{{ rexray_dobs_http_proxy }}" }
   when:
       - rexray_dobs_token is defined
