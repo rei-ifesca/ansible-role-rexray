@@ -49,7 +49,7 @@
       - dobs_installed.rc == 1
 
 - name: Enable Docker dobs driver
-  shell: docker plugin disable rexray/dobs
+  shell: docker plugin enable rexray/dobs
   when:
       - rexray_dobs_token is defined
       - dobs_installed.rc == 1
