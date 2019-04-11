@@ -78,3 +78,6 @@ rexray_dobs_status_max_attempts: 10
 rexray_dobs_status_timeout: 2m
 rexray_dobs_http_proxy: ''
 
+# Docker
+rexray_docker: false
+rexray_docker_legacy: true
