@@ -1,6 +1,6 @@
 # {{ ansible_managed }}
 rexray:
-{% if rexray_docker is defined %}
+{% if rexray_docker|d() %}
   modules:
     default-docker:
       host: tcp://:7981
@@ -21,114 +21,114 @@ libstorage:
       {{ driver }}:
         driver: {{ driver }}
 {% endfor %}
-{% if "ebs" in rexray_storage_drivers %}
+{% if "ebs" in rexray_storage_drivers|d([]) %}
 ebs:
-{% if rexray_aws_accesskey is defined %}  accessKey: {{ rexray_aws_accesskey }}
+{% if rexray_aws_accesskey|d() %}  accessKey: {{ rexray_aws_accesskey }}
 {% endif %}
-{% if rexray_aws_secretkey is defined %}  secretKey: {{ rexray_aws_secretkey }}
+{% if rexray_aws_secretkey|d() %}  secretKey: {{ rexray_aws_secretkey }}
 {% endif %}
-{% if rexray_aws_region is defined %}  region: {{ rexray_aws_region }}
+{% if rexray_aws_region|d() %}  region: {{ rexray_aws_region }}
 {% endif %}
 {% endif %}
-{% if "efs" in rexray_storage_drivers %}
+{% if "efs" in rexray_storage_drivers|d([]) %}
 efs:
-{% if rexray_aws_accesskey is defined %}  accessKey: {{ rexray_aws_accesskey }}
+{% if rexray_aws_accesskey|d() %}  accessKey: {{ rexray_aws_accesskey }}
 {% endif %}
-{% if rexray_aws_secretkey is defined %}  secretKey: {{ rexray_aws_secretkey }}
+{% if rexray_aws_secretkey|d() %}  secretKey: {{ rexray_aws_secretkey }}
 {% endif %}
-{% if rexray_aws_region is defined %}  region: {{ rexray_aws_region }}
+{% if rexray_aws_region|d() %}  region: {{ rexray_aws_region }}
 {% endif %}
 {% endif %}
-{% if "gce" in rexray_storage_drivers %}
+{% if "gce" in rexray_storage_drivers|d([]) %}
 gcepd:
-{% if rexray_gce_keyfile is defined %}  keyfile: {{ rexray_gce_keyfile }}
+{% if rexray_gce_keyfile|d() %}  keyfile: {{ rexray_gce_keyfile }}
 {% endif %}
 {% endif %}
-{% if "isilon" in rexray_storage_drivers %}
+{% if "isilon" in rexray_storage_drivers|d([]) %}
 isilon:
-{% if rexray_isilon_endpoint is defined %}  endpoint: {{ rexray_isilon_endpoint }}
+{% if rexray_isilon_endpoint|d() %}  endpoint: {{ rexray_isilon_endpoint }}
 {% endif %}
-{% if rexray_isilon_insecure is defined %}  insecure: {{ rexray_isilon_insecure }}
+{% if rexray_isilon_insecure|d() %}  insecure: {{ rexray_isilon_insecure }}
 {% endif %}
-{% if rexray_isilon_username is defined %}  username: {{ rexray_isilon_username }}
+{% if rexray_isilon_username|d() %}  username: {{ rexray_isilon_username }}
 {% endif %}
-{% if rexray_isilon_password is defined %}  password: {{ rexray_isilon_password }}
+{% if rexray_isilon_password|d() %}  password: {{ rexray_isilon_password }}
 {% endif %}
-{% if rexray_isilon_volumePath is defined %}  volumePath: {{ rexray_isilon_volumePath }}
+{% if rexray_isilon_volumePath|d() %}  volumePath: {{ rexray_isilon_volumePath }}
 {% endif %}
-{% if rexray_isilon_nfsHost is defined %}  nfsHost: {{ rexray_isilon_nfsHost }}
+{% if rexray_isilon_nfsHost|d() %}  nfsHost: {{ rexray_isilon_nfsHost }}
 {% endif %}
 {% endif %}
-{% if "cinder" in rexray_storage_drivers %}
+{% if "cinder" in rexray_storage_drivers|d([]) %}
 cinder:
-{% if rexray_os_authurl is defined %}  authURL: {{ rexray_os_authurl }}
+{% if rexray_os_authurl|d() %}  authURL: {{ rexray_os_authurl }}
 {% endif %}
-{% if rexray_os_userid is defined %}  userID: {{ rexray_os_userid }}
+{% if rexray_os_userid|d() %}  userID: {{ rexray_os_userid }}
 {% endif %}
-{% if rexray_os_username is defined %}  userName: {{ rexray_os_username }}
+{% if rexray_os_username|d() %}  userName: {{ rexray_os_username }}
 {% endif %}
-{% if rexray_os_password is defined %}  password: {{ rexray_os_password }}
+{% if rexray_os_password|d() %}  password: {{ rexray_os_password }}
 {% endif %}
-{% if rexray_os_tenantid is defined %}  tenantID: {{ rexray_os_tenantid }}
+{% if rexray_os_tenantid|d() %}  tenantID: {{ rexray_os_tenantid }}
 {% endif %}
-{% if rexray_os_tenantname is defined %}  tenantName: {{ rexray_os_tenantname }}
+{% if rexray_os_tenantname|d() %}  tenantName: {{ rexray_os_tenantname }}
 {% endif %}
-{% if rexray_os_domainid is defined %}  domainID: {{ rexray_os_domainid }}
+{% if rexray_os_domainid|d() %}  domainID: {{ rexray_os_domainid }}
 {% endif %}
-{% if rexray_os_domainname is defined %}  domainName: {{ rexray_os_domainname }}
+{% if rexray_os_domainname|d() %}  domainName: {{ rexray_os_domainname }}
 {% endif %}
-{% if rexray_os_regionname is defined %}  regionName: {{ rexray_os_regionname }}
+{% if rexray_os_regionname|d() %}  regionName: {{ rexray_os_regionname }}
 {% endif %}
-{% if rexray_os_availabilityzonename is defined %}  availabilityZoneName: {{ rexray_os_availabilityzonename }}
+{% if rexray_os_availabilityzonename|d() %}  availabilityZoneName: {{ rexray_os_availabilityzonename }}
 {% endif %}
 {% endif %}
-{% if "scaleio" in rexray_storage_drivers %}
+{% if "scaleio" in rexray_storage_drivers|d([]) %}
 scaleio:
-{% if rexray_sio_endpoint is defined %}  endpoint: {{ rexray_sio_endpoint }}
+{% if rexray_sio_endpoint|d() %}  endpoint: {{ rexray_sio_endpoint }}
 {% endif %}
-{% if rexray_sio_insecure is defined %}  insecure: {{ rexray_sio_insecure }}
+{% if rexray_sio_insecure|d() %}  insecure: {{ rexray_sio_insecure }}
 {% endif %}
-{% if rexray_sio_usecerts is defined %}  useCerts: {{ rexray_sio_usecerts }}
+{% if rexray_sio_usecerts|d() %}  useCerts: {{ rexray_sio_usecerts }}
 {% endif %}
-{% if rexray_sio_username is defined %}  userName: {{ rexray_sio_username }}
+{% if rexray_sio_username|d() %}  userName: {{ rexray_sio_username }}
 {% endif %}
-{% if rexray_sio_password is defined %}  password: {{ rexray_sio_password }}
+{% if rexray_sio_password|d() %}  password: {{ rexray_sio_password }}
 {% endif %}
-{% if rexray_sio_systemid is defined %}  systemID: {{ rexray_sio_systemid }}
+{% if rexray_sio_systemid|d() %}  systemID: {{ rexray_sio_systemid }}
 {% endif %}
-{% if rexray_sio_systemname is defined %}  systemName: {{ rexray_sio_systemname }}
+{% if rexray_sio_systemname|d() %}  systemName: {{ rexray_sio_systemname }}
 {% endif %}
-{% if rexray_sio_protectiondomainid is defined %}  protectionDomainID: {{ rexray_sio_protectiondomainid }}
+{% if rexray_sio_protectiondomainid|d() %}  protectionDomainID: {{ rexray_sio_protectiondomainid }}
 {% endif %}
-{% if rexray_sio_protectiondomainname is defined %}  protectionDomainName: {{ rexray_sio_protectiondomainname }}
+{% if rexray_sio_protectiondomainname|d() %}  protectionDomainName: {{ rexray_sio_protectiondomainname }}
 {% endif %}
-{% if rexray_sio_storagepoolid is defined %}  storagePoolID: {{ rexray_sio_storagepoolid }}
+{% if rexray_sio_storagepoolid|d() %}  storagePoolID: {{ rexray_sio_storagepoolid }}
 {% endif %}
-{% if rexray_sio_storagepoolname is defined %}  storagePoolName: {{ rexray_sio_storagepoolname }}
+{% if rexray_sio_storagepoolname|d() %}  storagePoolName: {{ rexray_sio_storagepoolname }}
 {% endif %}
 {% endif %}
-{% if "virtualbox" in rexray_storage_drivers %}
+{% if "virtualbox" in rexray_storage_drivers|d([]) %}
 virtualbox:
-{% if rexray_vbox_endpoint is defined %}  endpoint: {{ rexray_vbox_endpoint }}
+{% if rexray_vbox_endpoint|d() %}  endpoint: {{ rexray_vbox_endpoint }}
 {% endif %}
-{% if rexray_vbox_volume_path is defined %}  volumePath: {{ rexray_vbox_volume_path }}
+{% if rexray_vbox_volume_path|d() %}  volumePath: {{ rexray_vbox_volume_path }}
 {% endif %}
-{% if rexray_vbox_user is defined %}  userName: {{ rexray_vbox_user }}
+{% if rexray_vbox_user|d() %}  userName: {{ rexray_vbox_user }}
 {% endif %}
-{% if rexray_vbox_pass is defined %}  password: {{ rexray_vbox_pass }}
+{% if rexray_vbox_pass|d() %}  password: {{ rexray_vbox_pass }}
 {% endif %}
-{% if rexray_vbox_tls is defined %}  tls: {{ rexray_vbox_tls }}
+{% if rexray_vbox_tls|d() %}  tls: {{ rexray_vbox_tls }}
 {% endif %}
-{% if rexray_vbox_controller_name is defined %}  controllerName: {{ rexray_vbox_controller_name }}
+{% if rexray_vbox_controller_name|d() %}  controllerName: {{ rexray_vbox_controller_name }}
 {% endif %}
-{% if rexray_vbox_machine is defined %}  localMachineNameOrId: {{ rexray_vbox_machine }}
+{% if rexray_vbox_machine|d() %}  localMachineNameOrId: {{ rexray_vbox_machine }}
 {% endif %}
 {% endif %}
-{% if "dobs" in rexray_storage_drivers %}
+{% if "dobs" in rexray_storage_drivers|d([]) %}
 dobs:
-{% if rexray_dobs_token is defined %}  token: {{ rexray_dobs_token }}
+{% if rexray_dobs_token|d() %}  token: {{ rexray_dobs_token }}
 {% endif %}
-{% if rexray_dobs_region is defined %}  region: {{ rexray_dobs_region }}
+{% if rexray_dobs_region|d() %}  region: {{ rexray_dobs_region }}
 {% endif %}
 {% if rexray_dobs_convert_underscores %}  convertUnderscores: {{ rexray_dobs_convert_underscores }}
 {% endif %}
