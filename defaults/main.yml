@@ -1,4 +1,8 @@
 ---
+###############################################################################
+# RexRay Config
+###############################################################################
+
 # channel can be stable | unstable | staged
 rexray_channel: stable
 
@@ -7,6 +11,12 @@ rexray_service: false
 
 # loglevel can be on of debug, info, warn, error
 rexray_log_level: warn
+
+###############################################################################
+# LibStorage Config
+#
+# See also: https://rexray.readthedocs.io/en/stable/user-guide/servers/libstorage
+###############################################################################
 
 # Forcefully take control of volumes when requested
 # Enables any host to take control of a volume irrespective of whether other hosts are using the volume.
@@ -34,9 +44,17 @@ rexray_volume_operations_force_remove: false
 # Default volume size
 rexray_volume_size: 1
 
+###############################################################################
+# Drivers
+###############################################################################
+
 # list of storage drivers to enable
 # one of ec2 | gce | isilon | cinder | rackspace | scaleio | virtualbox | vmax | xtremio
 rexray_storage_drivers: []
+
+###############################################################################
+# Driver Services Config
+###############################################################################
 
 # AWS EC2 Storage Driver
 #rexray_aws_accesskey: ''
