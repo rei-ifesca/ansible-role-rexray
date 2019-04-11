@@ -30,7 +30,7 @@ libstorage:
   server:
     services:
 {% for driver in rexray_storage_drivers %}
-      rexray/{{ driver|lower }}:
+      {{ driver|lower }}:
         driver: {{ driver|lower }}
 {% endfor %}
 {% if "ebs" in rexray_storage_drivers|d([]) %}
