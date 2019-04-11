@@ -8,15 +8,34 @@ rexray_service: false
 # loglevel can be on of debug, info, warn, error
 rexray_log_level: warn
 
+# Forcefully take control of volumes when requested
 # Enables any host to take control of a volume irrespective of whether other hosts are using the volume.
 # If this is set to false then plugins should ensure safety first by locking the volume from to the current owner host.
 rexray_volume_preempt: false
+
+# Ignore Used Count
+#
+# The ignoreusedcount ensures that driver is authoritative when it comes to deciding when to unmount volumes.
+#
+# See https://rexray.readthedocs.io/en/stable/user-guide/servers/libstorage/#ignore-used-count
+rexray_volume_ignoreusedcount: false
+
+# he disable create feature enables you to disallow any volume creation activity.
+#  Any requests will be returned in a successful manner, but the create will not get passed to the backend storage platform.
+rexray_volume_operations_disable_create: false
+
+# The disable remove feature enables you to disallow any volume removal activity.
+#  Any requests will be returned in a successful manner, but the remove will not get passed to the backend storage platform.
+rexray_volume_operations_disable_remove: false
+
+# The force remove feature enables the forced removal of a volume despite its current contents or state:
+rexray_volume_operations_force_remove: false
 
 # Default volume size
 rexray_volume_size: 1
 
 # list of storage drivers to enable
-# one of ec2 | gce | isilon | openstack | rackspace | scaleio | virtualbox | vmax | xtremio
+# one of ec2 | gce | isilon | cinder | rackspace | scaleio | virtualbox | vmax | xtremio
 rexray_storage_drivers: []
 
 # AWS EC2 Storage Driver

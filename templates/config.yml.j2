@@ -5,21 +5,33 @@ rexray:
     default-docker:
       host: tcp://:7981
 {% endif %}
-  logLevel: {{ rexray_log_level }}
+  logLevel: {{ rexray_log_level|lower }}
 libstorage:
+  logging:
+    level: {{ rexray_log_level|lower }}
   integration:
     volume:
+      operations:
+        create:
+          disable: {{ rexray_volume_operations_disable_create|lower }}
+        mount:
+          preempt: {{ rexray_volume_preempt|lower }}
+        remove:
+          disable: {{ rexray_volume_operations_disable_remove|lower }}
+          force: {{ rexray_volume_operations_force_remove|lower }}
       mount:
-        preempt: {{ rexray_volume_preempt | lower }}
+        preempt: {{ rexray_volume_preempt|lower }}
+      unmount:
+        ignoreusedcount: {{ rexray_volume_ignoreusedcount|lower }}
       create:
         default:
-          size: {{ rexray_volume_size }}
-  service: {{ rexray_storage_drivers[0] }}
+          size: {{ rexray_volume_size |int}}
+  service: {{ rexray_storage_drivers|first|lower }}
   server:
     services:
 {% for driver in rexray_storage_drivers %}
-      {{ driver }}:
-        driver: {{ driver }}
+      rexray/{{ driver|lower }}:
+        driver: {{ driver|lower }}
 {% endfor %}
 {% if "ebs" in rexray_storage_drivers|d([]) %}
 ebs:
